@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiempo Disponible</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header>
+    <h1>GYM Routine Generator</h1>
+  </header>
+  
+  <main>
+    <form action="goal.html" method="GET" class="form">
+      <h2>¿Cuánto tiempo tienes para entrenar?</h2>
+      <label for="time">Tiempo (en minutos):</label>
+      <input type="number" id="time" name="time" placeholder="Ej: 30" required>
+      <button type="submit" class="button">Siguiente</button>
+    </form>
+  </main>
+
+  <script>
+    document.querySelector('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const time = document.getElementById('time').value;
+      localStorage.setItem('time', time); // Guardar el tiempo
+      window.location.href = 'goal.html'; // Ir a la siguiente página
+    });    
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objetivo</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header>
+    <h1>GYM Routine Generator</h1>
+  </header>
+  
+  <main>
+    <form action="muscles.html" method="GET" class="form">
+      <h2>¿Cuál es tu objetivo principal?</h2>
+      <select name="goal" id="goal" required>
+        <option value="strength">Fuerza</option>
+        <option value="fat_loss">Pérdida de Grasa</option>
+        <option value="endurance">Resistencia</option>
+      </select>
+      <button type="submit" class="button">Siguiente</button>
+    </form>
+  </main>
+
+  <script>
+    document.querySelector('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const goal = document.getElementById('goal').value;
+      localStorage.setItem('goal', goal); // Guardar el objetivo
+      window.location.href = 'muscles.html'; // Ir a la siguiente página
+    });    
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grupos Musculares</title>
+  <link rel="stylesheet" href="styles/muscles.css">
+</head>
+<body>
+<header>
+    <h1>GYM Routine Generator</h1>
+</header>
+  
+  <main>
+    <h2>Selecciona los grupos musculares a trabajar:</h2>
+    <form id="muscle-form">
+      <div class="muscle-container">
+        <label>
+          <input type="checkbox" name="muscles" value="Pecho"> Pecho
+        </label>
+        <label>
+          <input type="checkbox" name="muscles" value="Espalda"> Espalda
+        </label>
+        <label>
+          <input type="checkbox" name="muscles" value="Bíceps"> Bíceps
+        </label>
+        <label>
+          <input type="checkbox" name="muscles" value="Tríceps"> Tríceps
+        </label>
+        <label>
+          <input type="checkbox" name="muscles" value="Cuádriceps"> Cuádriceps
+        </label>
+        <label>
+          <input type="checkbox" name="muscles" value="Isquiotibiales"> Isquiotibiales
+        </label>
+        <label>
+          <input type="checkbox" name="muscles" value="Pantorrillas"> Pantorrillas
+        </label>
+        <label>
+          <input type="checkbox" name="muscles" value="Glúteos"> Glúteos
+        </label>
+        <label>
+          <input type="checkbox" name="muscles" value="Hombros"> Hombros
+        </label>
+      </div>
+      <button type="submit" class="generate-btn">Generar Rutina</button>
+    </form>
+  </main>
+  
+  <footer>
+    <p>© 2024 GYM Routine Generator</p>
+  </footer>
+
+  <script>
+    document.querySelector('form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const selectedMuscles = Array.from(document.querySelectorAll('input[name="muscles"]:checked'))
+          .map(input => input.value);
+        localStorage.setItem('muscles', JSON.stringify(selectedMuscles)); // Guardar músculos seleccionados
+        window.location.href = 'summary.html'; // Ir a la página de resumen
+      });
+      
+  </script>
+</body>
+</html>
